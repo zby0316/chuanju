@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川剧 × 设计 | 传统艺术的现代演绎</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C62828', // 川剧红
+                        secondary: '#8D6E63', // 脸谱棕
+                        accent: '#FDD835', // 戏服金
+                        dark: '#3E2723', // 传统墨色
+                        light: '#EFEBE9', // 宣纸色
+                    },
+                    fontFamily: {
+                        xiaowei: ['"ZCOOL XiaoWei"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .bg-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-sans bg-pattern">
+    <!-- 导航栏 -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-dark/90 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <i class="fa fa-paint-brush text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-xiaowei text-white">川剧设计</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#cases" class="text-white hover:text-accent transition-colors font-medium">设计案例</a>
+                <a href="#impact" class="text-white hover:text-accent transition-colors font-medium">文化影响</a>
+            </nav>
+            
+            <button class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/川剧×设计/设计.jpg" alt="川剧与设计结合的艺术展示" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/90 via-dark/70 to-dark/50"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-xiaowei text-white text-shadow leading-tight mb-6">
+                川剧 × 设计<br>
+                <span class="text-accent">传统美学的当代重生</span>
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-white text-shadow max-w-3xl mx-auto mb-10">
+                探索川剧元素如何通过现代设计语言焕发新生，成为连接传统与未来的美学桥梁
+            </p>
+            <a href="#cases" class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 font-medium inline-flex items-center">
+                开始探索 <i class="fa fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 案例展示区 -->
+    <section id="cases" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-dark mb-4">设计案例</h2>
+                <p class="text-lg text-secondary max-w-3xl mx-auto">
+                    探索川剧元素如何巧妙融入现代设计，创造独特的视觉与文化体验
+                </p>
+                <div class="w-16 h-1 bg-primary mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 案例1：时尚服饰 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×设计/脸谱时装秀.jpg" alt="川剧元素时尚服饰设计" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">川剧脸谱时装秀</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            设计师将川剧脸谱色彩与图案解构重组，应用于现代服饰设计，打造出兼具传统韵味与时尚感的系列作品。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">时尚设计</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">文化IP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例2：建筑设计 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×设计/博物馆.jpg" alt="川剧元素建筑设计" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">川剧博物馆设计</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            建筑外观借鉴川剧戏台的飞檐斗拱，内部空间通过光影变化模拟变脸艺术，成为城市文化地标。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">建筑设计</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">空间叙事</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例3：平面设计 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×设计/海报.jpg" alt="川剧元素平面设计" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">川剧主题海报设计</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            设计师运用现代排版与数字艺术手法，重新诠释川剧经典剧目，创造出兼具视觉冲击力与文化内涵的海报系列。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">平面设计</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">视觉传达</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例4：产品设计 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×设计/产品.jpg" alt="川剧元素产品设计" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">川剧元素文创产品</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            茶杯、文具、首饰等生活用品融入变脸、水袖等川剧元素，通过现代工艺重新演绎传统美学。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">产品设计</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">文化创意</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例5：UI/UX设计 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×设计/水袖.jpg" alt="川剧元素UI设计" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">戏曲文化APP界面</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            移动端应用通过川剧脸谱色彩系统、水袖动态效果与传统纹样，打造沉浸式戏曲学习体验。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">UI/UX设计</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">数字体验</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例6：包装设计 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×设计/茶.jpg" alt="川剧元素包装设计" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">川茶包装设计</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            茶叶包装采用变脸艺术动态效果，结合蜀绣工艺与现代印刷技术，展现传统茶文化与川剧的深厚渊源。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">包装设计</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">品牌叙事</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化影响区 -->
+    <section id="impact" class="py-20 bg-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-white mb-4">文化影响力</h2>
+                <p class="text-lg text-white/80 max-w-3xl mx-auto">
+                    川剧与设计的融合如何推动传统文化的现代传播
+                </p>
+                <div class="w-16 h-1 bg-accent mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">视觉现代化</h3>
+                    <p class="text-white/70">
+                        通过现代设计语言重构川剧元素，使传统文化符号更符合当代审美，提升年轻群体的接受度。
+                    </p>
+                </div>
+                
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">国际传播</h3>
+                    <p class="text-white/70">
+                        融入川剧元素的设计作品在国际设计赛事中屡获殊荣，成为中国文化输出的新名片。
+                    </p>
+                </div>
+                
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-lightbulb-o"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">产业创新</h3>
+                    <p class="text-white/70">
+                        川剧文化创意产品年销售额突破10亿元，带动传统手工艺复兴，创造超过5000个就业岗位。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-primary/10 rounded-xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-xiaowei text-accent mb-6">专家观点</h3>
+                        <blockquote class="text-white/80 italic mb-6">
+                            "设计是传统文化与现代社会对话的重要媒介。通过当代设计语言重新诠释川剧元素，不仅能唤醒年轻一代对传统文化的兴趣，更能赋予传统文化新的生命力。"
+                        </blockquote>
+                        <p class="text-accent font-medium">—— 清华大学美术学院 张教授</p>
+                    </div>
+                    <div class="relative">
+                        <img src="images/川剧×设计/教授.jpg" alt="设计专家访谈" class="w-full h-auto rounded-lg shadow-xl">
+                        <div class="absolute -bottom-4 -right-4 bg-accent text-dark px-4 py-2 rounded-lg shadow-lg">            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		 <div class="text-center mt-12">
+                <button class="bg-white hover:bg-primary/5 text-primary border border-primary/20 py-3 px-8 rounded-full transition-colors duration-300 font-medium">
+                  <a href="绝非儿戏 主网页.html">  回到主页</a>
+                </button>
+            </div>
+    </section>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/95', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-lg');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 图片懒加载
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // 回退到传统懒加载库
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
+    

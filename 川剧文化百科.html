@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川剧文化百科 - 中国传统艺术瑰宝</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C41E3A', // 中国红
+                        secondary: '#D4AF37', // 金色
+                        dark: '#1A1A1A', // 深色背景
+                        light: '#F5F5DC', // 浅色文本
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .bg-gradient-custom {
+                background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .mask-image {
+                mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark text-light min-h-screen flex flex-col">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-dark/90 backdrop-blur-md border-b border-secondary/30 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-secondary text-3xl mr-2">
+                        <i class="fa fa-opera"></i>
+                    </div>
+                    <a href="#" class="text-2xl font-serif font-bold text-secondary hover:text-primary transition-colors duration-300">川剧文化百科</a>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#intro" class="text-light hover:text-secondary transition-colors duration-300 font-medium">简介</a>
+                    <a href="#features" class="text-light hover:text-secondary transition-colors duration-300 font-medium">艺术特点</a>
+                    <a href="#plays" class="text-light hover:text-secondary transition-colors duration-300 font-medium">经典剧目</a>
+                    <a href="#artists" class="text-light hover:text-secondary transition-colors duration-300 font-medium">著名演员</a>
+                  
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-secondary text-xl focus:outline-none">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </nav>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2 border-t border-secondary/20">
+                <div class="flex flex-col space-y-3">
+                    <a href="#intro" class="text-light hover:text-secondary transition-colors duration-300 py-2">简介</a>
+                    <a href="#features" class="text-light hover:text-secondary transition-colors duration-300 py-2">艺术特点</a>
+                    <a href="#plays" class="text-light hover:text-secondary transition-colors duration-300 py-2">经典剧目</a>
+                    <a href="#artists" class="text-light hover:text-secondary transition-colors duration-300 py-2">著名演员</a>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/川剧文化百科/封面.png" alt="川剧表演舞台" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/20 via-dark/60 to-dark"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,6vw,5rem)] font-serif font-bold text-secondary mb-6 text-shadow animate-[fadeIn_1.5s_ease-in-out]">
+                川剧 - 中国戏曲瑰宝
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.5rem)] max-w-3xl mx-auto mb-10 text-light/90 text-shadow animate-[fadeIn_2s_ease-in-out]">
+                川剧是中国汉族戏曲剧种之一，距今已有400余年历史，以其独特的变脸、喷火等绝技闻名于世。
+            </p>
+            <div class="animate-[fadeIn_2.5s_ease-in-out]">
+                <a href="#intro" class="inline-block bg-primary hover:bg-primary/80 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    探索川剧世界
+                    <i class="fa fa-arrow-down ml-2"></i>
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-dark to-transparent"></div>
+    </section>
+
+    <!-- 川剧简介 -->
+    <section id="intro" class="py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 order-2 md:order-1">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-secondary mb-6 relative">
+                        <span class="inline-block pb-2 relative">
+                            川剧简介
+                            <div class="absolute left-0 bottom-0 w-1/3 h-1 bg-primary"></div>
+                        </span>
+                    </h2>
+                    <p class="text-light/80 mb-6 leading-relaxed">
+                        川剧是中国汉族戏曲剧种之一，流行于四川东中部、重庆及贵州、云南部分地区。川剧历史悠久，距今已有400余年，是中国传统文化的重要组成部分。
+                    </p>
+                    <p class="text-light/80 mb-6 leading-relaxed">
+                        川剧由昆腔、高腔、胡琴、弹戏、灯调五种声腔组成，各有其特色和剧目。川剧的表演艺术有浓厚的生活基础，真实细腻，幽默风趣，乡土气息浓郁。
+                    </p>
+                    <p class="text-light/80 leading-relaxed">
+                        2006年5月20日，川剧经国务院批准列入第一批国家级非物质文化遗产名录。
+                    </p>
+                </div>
+                <div class="md:w-1/2 order-1 md:order-2 relative">
+                    <div class="relative overflow-hidden rounded-lg shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+                        <img src="images/川剧文化百科/川剧传统表演.png" alt="川剧表演全景" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <p class="text-secondary font-medium">川剧传统表演</p>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-secondary rounded-lg -z-10 hidden md:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 艺术特点 -->
+    <section id="features" class="py-20 bg-gradient-to-b from-dark to-dark/95">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-secondary mb-4 relative inline-block">
+                    <span class="inline-block pb-2 relative">
+                        艺术特点
+                        <div class="absolute left-0 bottom-0 w-1/2 h-1 bg-primary"></div>
+                    </span>
+                </h2>
+                <p class="text-light/70">川剧以其独特的表演形式和艺术魅力闻名于世，尤其是变脸、喷火等绝技更是令人叹为观止。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 特点卡片 1：变脸 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/变脸.png" alt="川剧变脸表演" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">变脸</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            变脸是川剧表演艺术的特殊技巧之一，是揭示剧中人物内心思想感情的一种浪漫主义手法。演员在很短的时间内，在一抬手一拂袖一甩头之间，变换出不同的脸谱。
+                        </p>
+                        <div class="text-secondary">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 特点卡片 2：喷火 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/喷火.png" alt="川剧喷火表演" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">喷火</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            喷火是川剧中独一无二的神秘绝技，源于古西蜀，驰名中华梨园。演员通过嘴含松香粉，在特定的时机吹出，遇火即燃，形成绚丽的火焰效果。
+                        </p>
+                        <div class="text-secondary">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 特点卡片 3：五种声腔 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/五种声腔.png" alt="川剧乐器演奏" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">五种声腔</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            川剧由昆腔、高腔、胡琴、弹戏、灯调五种声腔组成。每种声腔都有其独特的音乐风格和表演特点，共同构成了川剧丰富多样的音乐体系。
+                        </p>
+                        <div class="text-secondary">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 经典剧目 -->
+    <section id="plays" class="py-20 bg-dark/95">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-secondary mb-4 relative inline-block">
+                    <span class="inline-block pb-2 relative">
+                        经典剧目
+                        <div class="absolute left-0 bottom-0 w-1/2 h-1 bg-primary"></div>
+                    </span>
+                </h2>
+                <p class="text-light/70">川剧历经数百年的发展，积累了大量优秀的经典剧目，这些剧目不仅是艺术的瑰宝，也是历史文化的重要载体。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 剧目卡片 1 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/金子.jpg" alt="川剧《金子》剧照" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">《金子》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            根据曹禺名著《原野》改编，讲述了金子在封建压迫下追求自由和爱情的故事，是川剧现代戏的代表作品。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-secondary/80">创作年代：1994年</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 剧目卡片 2 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/活捉张三郎.png" alt="川剧《活捉张三郎》剧照" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">《活捉张三郎》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            川剧经典折子戏，讲述了阎惜娇死后鬼魂活捉张三郎的故事，以其独特的表演技巧和惊悚的舞台效果闻名。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-secondary/80">传统剧目</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 剧目卡片 3 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/夫妻观灯.png" alt="川剧《夫妻观灯》剧照" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">《夫妻观灯》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            川剧灯戏的代表作，讲述了一对夫妻正月十五观花灯的趣事，语言幽默风趣，动作夸张生动，充满了生活气息。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-secondary/80">传统灯戏剧目</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 剧目卡片 4 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/巴山秀才.png" alt="川剧《巴山秀才》剧照" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">《巴山秀才》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            讲述了巴山秀才孟登科为百姓伸冤的故事，以其深刻的思想内涵和精湛的表演艺术，成为川剧历史上的经典之作。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-secondary/80">创作年代：1982年</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 剧目卡片 5 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/易胆大.png" alt="川剧《易胆大》剧照" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">《易胆大》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            讲述了川剧艺人易胆大的传奇人生，展现了旧社会戏曲艺人的苦难生活和不屈精神，是川剧历史题材剧目的代表作品。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-secondary/80">创作年代：1985年</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 剧目卡片 6 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/川剧文化百科/活捉石怀玉.png" alt="川剧《活捉石怀玉》剧照" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">《活捉石怀玉》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 mb-4">
+                            川剧经典鬼戏，讲述了少女李慧娘被权奸贾似道杀害后，鬼魂活捉仇人石怀玉的故事，以其独特的表演技巧和惊悚的舞台效果闻名。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-secondary/80">传统剧目</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <!-- 著名演员 -->
+    <section id="artists" class="py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-bold text-secondary mb-4 relative inline-block">
+                    <span class="inline-block pb-2 relative">
+                        著名演员
+                        <div class="absolute left-0 bottom-0 w-1/2 h-1 bg-primary"></div>
+                    </span>
+                </h2>
+                <p class="text-light/70">川剧历史上涌现出了许多杰出的表演艺术家，他们以精湛的技艺和独特的艺术风格，为川剧的发展和传承做出了重要贡献。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 演员卡片 1 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="images/川剧文化百科/张德成.png" alt="川剧表演艺术家张德成" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">张德成</h3>
+                            <p class="text-light/80 text-sm">（1902-1965）</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 text-sm">
+                            川剧表演艺术家，工旦角，尤以花旦和闺门旦见长。他的表演细腻传神，唱腔优美动听，代表剧目有《活捉张三郎》《拷红》等。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 演员卡片 2 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="images/川剧文化百科/陈书舫.png" alt="川剧表演艺术家陈书舫" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">陈书舫</h3>
+                            <p class="text-light/80 text-sm">（1924-1988）</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 text-sm">
+                            川剧表演艺术家，工旦角，被誉为"川剧皇后"。她的表演风格清新自然，唱腔婉转悠扬，代表剧目有《杜十娘》《夫妻观灯》等。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 演员卡片 3 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="images/川剧文化百科/周企何.png" alt="川剧表演艺术家周企何" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">周企何</h3>
+                            <p class="text-light/80 text-sm">（1911-1988）</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 text-sm">
+                            川剧表演艺术家，工丑角，被誉为"川剧第一丑"。他的表演幽默风趣，动作夸张生动，代表剧目有《迎贤店》《夫妻观灯》等。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 演员卡片 4 -->
+                <div class="bg-dark/50 border border-secondary/20 rounded-lg overflow-hidden group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="images/川剧文化百科/沈铁梅.png" alt="川剧表演艺术家沈铁梅" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-serif font-bold text-secondary">沈铁梅</h3>
+                            <p class="text-light/80 text-sm">（1965-至今）</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-light/70 text-sm">
+                            当代川剧表演艺术家，国家级非物质文化遗产川剧代表性传承人。她的表演大气磅礴，唱腔高亢嘹亮，代表剧目有《金子》《红梅记》等。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary hover:bg-primary/80 text-white rounded-full p-3 shadow-lg transform hover:scale-110 transition-all duration-300 opacity-0 invisible">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fa fa-times"></i>';
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动菜单
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // 返回顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 导航栏滚动效果
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('py-2');
+                header.classList.remove('py-3');
+            } else {
+                header.classList.add('py-3');
+                header.classList.remove('py-2');
+            }
+        });
+        
+        // 互动问答功能
+        const quizContainer = document.getElementById('quiz-container');
+        const quizResults = document.getElementById('quiz-results');
+        const submitQuizButton = document.getElementById('submit-quiz');
+        const resetQuizButton = document.getElementById('reset-quiz');
+        const scoreElement = document.getElementById('score');
+        const resultMessageElement = document.getElementById('result-message');
+        
+        submitQuizButton.addEventListener('click', () => {
+            // 检查答案
+            let score = 0;
+            
+            // 问题1: B. 0.5秒
+            if (document.getElementById('q1-b').checked) {
+                score++;
+            }
+            
+            // 问题2: B. 高腔
+            if (document.getElementById('q2-b').checked) {
+                score++;
+            }
+            
+            // 问题3: A. 忠勇
+            if (document.getElementById('q3-a').checked) {
+                score++;
+            }
+            
+            // 显示结果
+            scoreElement.textContent = `${score}/3`;
+            
+            if (score === 3) {
+                resultMessageElement.textContent = "太棒了！你对川剧文化非常了解！";
+            } else if (score >= 1) {
+                resultMessageElement.textContent = "不错！你对川剧文化有一定的了解。";
+            } else {
+                resultMessageElement.textContent = "继续加油！你可以更深入地了解川剧文化。";
+            }
+            
+            quizContainer.classList.add('hidden');
+            quizResults.classList.remove('hidden');
+        });
+        
+        resetQuizButton.addEventListener('click', () => {
+            // 重置所有选项
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // 隐藏结果，显示问题
+            quizResults.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+        });
+        
+        // 添加图片懒加载
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img"));
+            
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.classList.add("fade-in");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+	<div class="text-center mt-12">
+                <button class="bg-white hover:bg-primary/5 text-primary border border-primary/20 py-3 px-8 rounded-full transition-colors duration-300 font-medium">
+                  <a href="绝非儿戏 主网页.html">  回到主页</a>
+                </button>
+            </div>
+</body>
+</html>
+    

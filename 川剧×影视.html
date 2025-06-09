@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川剧 × 影视 | 传统艺术的银幕重生</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C62828', // 川剧红
+                        secondary: '#5D4037', // 影视棕
+                        accent: '#FDD835', // 戏服金
+                        dark: '#212121', // 影院黑
+                        light: '#EFEBE9', // 银幕白
+                    },
+                    fontFamily: {
+                        xiaowei: ['"ZCOOL XiaoWei"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .text-shadow-lg {
+                text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .bg-curtain {
+                background-image: linear-gradient(to right, #3E2723, #212121, #3E2723);
+            }
+            .bg-film-grain {
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+                background-blend-mode: overlay;
+                background-size: 150px;
+                opacity: 0.05;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-sans">
+    <!-- 导航栏 -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-dark/90 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <i class="fa fa-film text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-xiaowei text-white">川剧影视</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#cases" class="text-white hover:text-accent transition-colors font-medium">影视案例</a>
+                <a href="#impact" class="text-white hover:text-accent transition-colors font-medium">文化影响</a>
+            </nav>
+            <button class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0"><img src="images/川剧×影视/影视.jpg" alt="川剧与影视结合的艺术展示" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-b from-dark/95 via-dark/80 to-dark/70"></div>
+            <div class="absolute inset-0 bg-film-grain"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-xiaowei text-white text-shadow-lg leading-tight mb-6">
+                川剧 × 影视<br>
+                <span class="text-accent">传统艺术的银幕重生</span>
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-white text-shadow max-w-3xl mx-auto mb-10">
+                探索川剧元素如何通过影视语言焕发新生，成为连接传统与未来的文化桥梁
+            </p>
+            <a href="#cases" class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 font-medium inline-flex items-center">
+                开始探索 <i class="fa fa-play-circle ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 影视案例区 -->
+    <section id="cases" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-dark mb-4">影视案例</h2>
+                <p class="text-lg text-secondary max-w-3xl mx-auto">
+                    探索川剧元素如何巧妙融入影视作品，创造独特的视觉与文化体验
+                </p>
+                <div class="w-16 h-1 bg-primary mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 案例1：剧情电影 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×影视/变脸.jpg" alt="川剧元素剧情电影" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《变脸》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            张艺谋执导的剧情片，讲述老艺人传承变脸绝技的故事，将川剧变脸艺术融入剧情，获得国际影坛高度评价。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">剧情电影</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">文化传承</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例2：动画电影 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×影视/哪吒.jpg" alt="川剧元素动画电影" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《哪吒之魔童降世》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            借鉴川剧脸谱色彩与造型设计，打造极具视觉冲击力的角色形象，成为中国动画电影票房冠军。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">动画电影</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">视觉设计</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例3：纪录片 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×影视/前世今生.jpg" alt="川剧元素纪录片" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《川剧的前世今生》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            运用4K超高清摄影与杜比全景声技术，全方位记录川剧艺术的历史传承与现代创新。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">纪录片</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">文化记录</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例4：网络剧 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×影视/戏隐江湖.jpg" alt="川剧元素网络剧" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《戏隐江湖》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            将川剧元素与武侠题材结合，通过网剧形式展现传统戏曲的现代魅力，吸引年轻观众群体。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">网络剧</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">武侠题材</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例5：电影特效 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×影视/影.jpg" alt="川剧元素电影特效" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《影》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            张艺谋执导的武侠电影，服装与场景设计融入川剧元素，通过数字特效打造水墨风格的视觉盛宴。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">电影特效</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">视觉风格</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例6：微电影 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×影视/水袖电影.jpg" alt="川剧元素微电影" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《水袖》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            聚焦川剧水袖艺术的微电影，通过细腻的镜头语言展现传统文化的优雅与力量，获多项国际短片大奖。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">微电影</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">艺术表达</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化影响区 -->
+    <section id="impact" class="py-20 bg-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-white mb-4">文化影响力</h2>
+                <p class="text-lg text-white/80 max-w-3xl mx-auto">
+                    川剧与影视的融合如何推动传统文化的现代传播
+                </p>
+                <div class="w-16 h-1 bg-accent mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">国际传播</h3>
+                    <p class="text-white/70">
+                        融入川剧元素的影视作品在国际电影节屡获殊荣，成为中国文化输出的重要载体，覆盖全球超过50个国家和地区。
+                    </p>
+                </div>
+                
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">年轻受众</h3>
+                    <p class="text-white/70">
+                        通过影视化表达，川剧相关内容在社交媒体上的关注度提升300%，18-35岁观众占比从12%跃升至45%。
+                    </p>
+                </div>
+                
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">产业带动</h3>
+                    <p class="text-white/70">
+                        川剧影视产业链年产值突破20亿元，带动戏曲教育、服装设计、特效制作等相关产业协同发展。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-primary/10 rounded-xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-xiaowei text-accent mb-6">导演访谈</h3>
+                        <blockquote class="text-white/80 italic mb-6">
+                            "川剧是一座艺术宝库，它的脸谱、身段、音乐都蕴含着独特的美学逻辑。当我们用电影语言重新诠释这些元素时，不仅能展现传统文化的魅力，更能创造出全新的视觉体验。"
+                        </blockquote>
+                        <p class="text-accent font-medium">—— 著名导演 张艺谋</p>
+                    </div>
+                    <div class="relative">
+                        <img src="images/川剧×影视/教授.jpg" alt="导演张艺谋访谈" class="w-full h-auto rounded-lg shadow-xl">
+                        <div class="absolute -bottom-4 -right-4 bg-accent text-dark px-4 py-2 rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="text-center mt-12">
+                <button class="bg-white hover:bg-primary/5 text-primary border border-primary/20 py-3 px-8 rounded-full transition-colors duration-300 font-medium">
+                  <a href="绝非儿戏 主网页.html">  回到主页</a>
+                </button>
+            </div>
+    </section>
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/95', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-lg');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 图片懒加载
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // 回退到传统懒加载库
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+        
+        // 影视卡片悬停效果增强
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('shadow-xl');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('shadow-xl');
+            });
+        });
+    </script>
+</body>
+</html>
+    

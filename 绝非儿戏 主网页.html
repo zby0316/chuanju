@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数智川剧 - 传统与未来的碰撞</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C62828', // 川剧红
+                        secondary: '#8D6E63', // 脸谱棕
+                        accent: '#FDD835', // 戏服金
+                        dark: '#3E2723', // 传统墨色
+                        light: '#EFEBE9', // 宣纸色
+                    },
+                    fontFamily: {
+                        xiaowei: ['"ZCOOL XiaoWei"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .mask-gradient {
+                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            }
+            .bg-scroll {
+                background-attachment: fixed;
+            }
+            .transition-transform {
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-sans">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <i class="fa fa-mask text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-xiaowei text-white text-shadow">绝非儿戏</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#face-painting" class="text-white hover:text-accent transition-colors font-medium">脸谱华彩,绝活荟萃</a>
+                <a href="#integration" class="text-white hover:text-accent transition-colors font-medium">戏韵流芳</a>
+                <a href="#behind-scenes" class="text-white hover:text-accent transition-colors font-medium">幕后探秘</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-dark/95 hidden">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#face-painting" class="text-white hover:text-accent transition-colors py-2 border-b border-secondary/30">脸谱华彩，绝活荟萃</a>
+                <a href="#integration" class="text-white hover:text-accent transition-colors py-2 border-b border-secondary/30">戏韵流芳</a>
+                <a href="#behind-scenes" class="text-white hover:text-accent transition-colors py-2 border-b border-secondary/30">幕后探秘</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <video class="w-full h-full object-cover mask-gradient" autoplay muted loop>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-chinese-opera-mask-change-4817-large.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/50 to-light/10"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-xiaowei text-white text-shadow leading-tight mb-6">
+                数智川剧<br>
+                <span class="text-accent">传统与未来的碰撞</span>
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-white text-shadow max-w-3xl mx-auto mb-10">
+                探索川剧艺术的精髓，体验传统与数字科技的奇妙融合
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#face-painting" class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 font-medium">
+                    开始探索
+                </a>
+                <a href="文创作品主页.html" class="bg-transparent border-2 border-white hover:border-accent hover:text-accent text-white py-3 px-8 rounded-full transition-all duration-300 font-medium">
+                    查看文创
+                </a>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#face-painting" class="text-white text-3xl">
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 脸谱华彩、绝活荟萃 -->
+<section id="face-painting" class="py-20 bg-light">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-dark mb-4">脸谱小课堂</h2>
+            <p class="text-lg text-secondary max-w-3xl mx-auto">
+                认识川剧脸谱的基础颜色与角色性格
+            </p>
+            <div class="w-16 h-1 bg-primary mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h3 class="text-xl font-xiaowei text-primary mb-6">颜色含义</h3>
+                <ul class="space-y-4 text-secondary">
+                    <li><i class="fa fa-circle text-primary mr-2"></i>红色：忠勇侠义（如关羽）</li>
+                    <li><i class="fa fa-circle text-secondary mr-2"></i>黑色：刚直不阿（如张飞）</li>
+                    <li><i class="fa fa-circle text-accent mr-2"></i>金色：神怪角色（如猴王）</li>
+                </ul>
+            </div>
+
+            <div class="relative">
+                <img src="images/脸谱.png" alt="基础脸谱展示" class="w-full rounded-lg shadow-lg">
+                <div class="absolute -bottom-6 -right-6 bg-secondary/10 w-24 h-24 rounded-full"></div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <h3 class="text-xl font-xiaowei text-primary mb-4">川剧熊猫萌翻天</h3>
+            <p class="text-secondary mb-8">跟着谱宝学川剧</p>
+            <video src="video/谱宝.mp4" style = "width: 1400px; height: 500px;" controls = "controls"></video>
+        </div>
+    </div>
+</section>
+            
+            <div class="mt-20">
+                <h3 class="text-2xl font-xiaowei text-primary mb-8 text-center">川剧四大绝技</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="images/变脸.png" alt="变脸" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-primary/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                             
+                            </div>
+                        </div>
+                        <div class="p-6">
+						
+                            <h4 class="text-xl font-medium text-dark mb-3">变脸</h4>
+                            <p class="text-secondary">川剧表演中最著名的特技，演员在瞬间变换面部妆容，展现人物内心变化。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="images/喷火.png" alt="喷火" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-primary/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                               
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-medium text-dark mb-3">喷火</h4>
+                            <p class="text-secondary">演员通过嘴中喷出火焰，营造戏剧氛围，象征愤怒或超自然力量。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="images/藏刀.png" alt="藏刀" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-primary/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-medium text-dark mb-3">藏刀</h4>
+                            <p class="text-secondary">演员在瞬间"隐藏"或"出现"刀具，展现精湛的身体控制和舞台技巧。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="images/顶灯.png" alt="顶灯" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-primary/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-medium text-dark mb-3">顶灯</h4>
+                            <p class="text-secondary">演员头顶油灯进行复杂动作，灯不灭、油不洒，展现超凡的平衡感。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- 戏韵流芳 -->
+<section id="integration" class="py-20 bg-dark text-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-white mb-4">川剧新体验</h2>
+            <p class="text-lg text-white/80 max-w-3xl mx-auto">
+                传统川剧与现代元素的简单融合案例
+            </p>
+            <div class="w-16 h-1 bg-accent mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h3 class="text-xl font-xiaowei text-accent mb-6">数字相册</h3>
+                <p class="text-white/70 mb-6">
+                    浏览川剧经典场景与现代技术结合的照片
+                </p>
+                <ul class="space-y-4 text-white/60">
+                    <li><i class="fa fa-image text-accent mr-2"></i>虚拟舞台背景合成照</li>
+                    <li><i class="fa fa-music text-accent mr-2"></i>电子配乐制作现场</li>
+                    <li><i class="fa fa-users text-accent mr-2"></i>年轻人体验川剧化妆</li>
+                </ul>
+            </div>
+
+            <div class="relative">
+                <img src="images/数字虚拟相册.png" alt="川剧与现代技术结合" class="w-full rounded-lg shadow-lg">
+                <div class="absolute -bottom-6 -right-6 bg-accent/10 w-24 h-24 rounded-full"></div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <h3 class="text-xl font-xiaowei text-white mb-4">简易互动体验</h3>
+           
+           <div class="text-center mt-12">
+                <button class="bg-white hover:bg-primary/5 text-primary border border-primary/20 py-3 px-8 rounded-full transition-colors duration-300 font-medium">
+                  <a href="川剧小游戏.html">  点此开始玩游戏</a>
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-20 bg-primary/10 rounded-xl p-8">
+            <div class="text-center mb-6">
+                <h3 class="text-lg font-xiaowei text-white">你喜欢哪种创新形式？</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white/20 p-4 rounded-lg">
+                    <input type="radio" id="option1" name="innovation" class="hidden">
+                    <label for="option1" class="flex items-center gap-3 text-white/70 hover:text-white">
+                        <i class="fa fa-film text-accent"></i> 影视剪辑
+                    </label>
+                </div>
+                <div class="bg-white/20 p-4 rounded-lg">
+                    <input type="radio" id="option2" name="innovation" class="hidden">
+                    <label for="option2" class="flex items-center gap-3 text-white/70 hover:text-white">
+                        <i class="fa fa-gamepad text-accent"></i> 小游戏
+                    </label>
+                </div>
+                <div class="bg-white/20 p-4 rounded-lg">
+                    <input type="radio" id="option3" name="innovation" class="hidden">
+                    <label for="option3" class="flex items-center gap-3 text-white/70 hover:text-white">
+                        <i class="fa fa-paint-brush text-accent"></i> 绘画教程
+                    </label>
+                </div>
+                <div class="bg-white/20 p-4 rounded-lg">
+                    <input type="radio" id="option4" name="innovation" class="hidden">
+                    <label for="option4" class="flex items-center gap-3 text-white/70 hover:text-white">
+                        <i class="fa fa-microphone text-accent"></i> 配音挑战
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            
+            <div class="mt-20">
+                <h3 class="text-2xl font-xiaowei text-white mb-8 text-center">跨界实验田</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-dark/50 border border-white/10 rounded-lg p-6 transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-accent text-4xl mb-6">
+                            <i class="fa fa-gamepad"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-white mb-4">川剧×游戏</h4>
+                        <p class="text-white/70 mb-4">
+                            将川剧元素融入现代游戏设计，开发具有传统文化内涵的互动娱乐体验。
+                        </p>
+                        <a href="川剧×游戏.html" class="text-accent hover:text-accent/80 inline-flex items-center">
+                            了解案例 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-dark/50 border border-white/10 rounded-lg p-6 transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-accent text-4xl mb-6">
+                            <i class="fa fa-paint-brush"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-white mb-4">川剧×设计</h4>
+                        <p class="text-white/70 mb-4">
+                            传统戏曲元素与现代设计理念的碰撞，创造兼具艺术性与实用性的文创产品。
+                        </p>
+                        <a href="川剧×设计.html" class="text-accent hover:text-accent/80 inline-flex items-center">
+                            了解案例 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-dark/50 border border-white/10 rounded-lg p-6 transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-accent text-4xl mb-6">
+                            <i class="fa fa-video-camera"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-white mb-4">川剧×影视</h4>
+                        <p class="text-white/70 mb-4">
+                            探索川剧艺术在电影、电视剧等现代媒体中的新表达方式。
+                        </p>
+                        <a href="川剧×影视.html" class="text-accent hover:text-accent/80 inline-flex items-center">
+                            了解案例 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 bg-primary/10 rounded-xl p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl font-xiaowei text-white mb-4">你最想看到川剧与什么结合？</h3>
+                    <p class="text-white/80 max-w-2xl mx-auto">
+                        参与投票，影响我们的文创开发方向，让传统艺术以你喜欢的方式焕发生机
+                    </p>
+                </div>
+                
+                <div class="max-w-2xl mx-auto">
+                    <canvas id="voteChart" width="400" height="200"></canvas>
+                    
+                    <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <button class="vote-btn bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-lg transition-colors duration-300" data-option="1">
+                            科幻电影
+                        </button>
+                        <button class="vote-btn bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-lg transition-colors duration-300" data-option="2">
+                            VR游戏
+                        </button>
+                        <button class="vote-btn bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-lg transition-colors duration-300" data-option="3">
+                            汉服设计
+                        </button>
+                        <button class="vote-btn bg-white/10 hover:bg-white/20 text-white py-3 px-4 rounded-lg transition-colors duration-300" data-option="4">
+                            电子音乐
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+   <!-- 幕后探秘 -->
+<section id="behind-scenes" class="py-20 bg-light">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-dark mb-4">幕后探秘</h2>
+            <p class="text-lg text-secondary max-w-3xl mx-auto">
+                走进川剧的神秘世界，了解这门古老艺术背后的故事和技艺传承
+            </p>
+            <div class="w-24 h-1 bg-primary mx-auto mt-6"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <div class="relative rounded-lg overflow-hidden shadow-2xl">
+                    <img src="images/艺术传承.jpg" alt="川剧演员后台准备" class="w-full h-auto">
+                </div>
+                
+                <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-accent/10 rounded-full -z-10"></div>
+                
+                <div class="absolute -top-4 -left-4 md:-top-10 md:-left-10 bg-white p-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500">
+                    <img src="https://picsum.photos/seed/opera-mask/200/200" alt="川剧变脸面具细节" class="w-24 h-24 object-cover rounded-lg">
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-xiaowei text-primary mb-6">艺术传承</h3>
+                <p class="text-dark mb-6">
+                    川剧是中国传统文化的瑰宝，距今已有400多年历史。它以其独特的变脸、喷火等绝技闻名于世，是国家级非物质文化遗产。
+                </p>
+                
+                <div class="space-y-6 mb-8">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-full mr-4">
+                            <i class="fa fa-history text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-medium text-dark mb-2">百年传承</h4>
+                            <p class="text-secondary">川剧的历史可以追溯到明朝，经过数百年的发展，形成了独特的艺术风格</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-full mr-4">
+                            <i class="fa fa-users text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-medium text-dark mb-2">师徒传承</h4>
+                            <p class="text-secondary">传统的川剧技艺通过师徒相授的方式代代相传，许多艺术家从小就开始学习</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-full mr-4">
+                            <i class="fa fa-paint-brush text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-medium text-dark mb-2">精细工艺</h4>
+                            <p class="text-secondary">川剧的服装、面具和道具制作都有着严格的工艺要求，每件作品都凝聚着匠人的心血</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 技艺展示 -->
+        <div class="mt-20">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-xiaowei text-primary mb-4">传统技艺</h3>
+                <p class="text-lg text-secondary max-w-3xl mx-auto">
+                    川剧包含多种独特的表演技艺，每一种都需要长期的练习和精湛的技巧
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 变脸 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/变脸艺术.png" alt="川剧变脸表演" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h4 class="text-white text-xl font-medium p-6">变脸艺术</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark">川剧变脸是一种独特的表演艺术，演员在瞬间变换面部妆容，展现角色内心变化。</p>
+                        <div class="mt-4">
+                            <span class="text-sm text-secondary">需要10年以上的练习才能掌握</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 喷火 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/喷火绝技.jpg" alt="川剧喷火表演" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h4 class="text-white text-xl font-medium p-6">喷火绝技</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark">川剧喷火是一种极具视觉冲击力的表演技巧，演员通过特殊的方法喷出火焰，象征角色的激情。</p>
+                        <div class="mt-4">
+                            <span class="text-sm text-secondary">需要严格的训练以确保安全</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 水袖 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="images/水袖功夫.png" alt="川剧水袖表演" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <h4 class="text-white text-xl font-medium p-6">水袖功夫</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark">水袖是川剧表演中常用的技巧，演员通过长袖的舞动表达情感，增强表演的美感。</p>
+                        <div class="mt-4">
+                            <span class="text-sm text-secondary">每一个动作都有特定的含义和情感表达</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            
+           <!-- 后台直播间（简化） -->
+<div class="mt-20">
+    <h3 class="text-xl font-xiaowei text-primary mb-8 text-center">后台掠影</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h4 class="text-lg font-medium text-dark mb-4">化妆间日常</h4>
+            <p class="text-secondary">演员正在准备经典角色脸谱</p>
+            <img src="images/演员化妆.jpg" alt="化妆现场" class="w-full h-40 object-cover mt-4 rounded-lg">
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h4 class="text-lg font-medium text-dark mb-4">戏服展示</h4>
+            <p class="text-secondary">传统川剧戏服的纹样与工艺</p>
+            <img src="images/川剧戏服.png" alt="戏服展示" class="w-full h-40 object-cover mt-4 rounded-lg">
+        </div>
+    </div>
+</div>
+        
+                
+            <div class="mt-20 bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <h3 class="text-2xl font-xiaowei text-primary mb-6">文创福袋</h3>
+                        <p class="text-dark mb-6">
+                            首次访问即送电子福袋！包含川剧电子海报、艺术字体生成器使用券，还有机会获得限量版实体文创。
+                        </p>
+                        <div class="mb-8">
+                            <div class="flex items-center mb-4">
+                                <i class="fa fa-check-circle text-primary mr-3"></i>
+                                <span class="text-dark">定制电子海报：生成你的专属川剧风格头像</span>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <i class="fa fa-check-circle text-primary mr-3"></i>
+                                <span class="text-dark">艺术字体：将文字转换为川剧风格书法</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fa fa-check-circle text-primary mr-3"></i>
+                                <span class="text-dark">抽奖机会：赢取限量版川剧周边礼品</span>
+                            </div>
+                        </div>
+                        <button id="getGiftBtn" class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 font-medium w-full md:w-auto">
+                            领取福袋
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <img src="images/页脚大图.png" alt="文创福袋" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent md:hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- 订阅区 -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                 <button class="bg-white hover:bg-primary/5 text-primary border border-primary/20 py-3 px-8 rounded-full transition-colors duration-300 font-medium">
+                  <a href="川剧历史.html">   川剧历史 </a>
+                </button>
+				 <button class="bg-white hover:bg-primary/5 text-primary border border-primary/20 py-3 px-8 rounded-full transition-colors duration-300 font-medium">
+                  <a href="川剧文化百科.html">  川剧文化百科</a>
+                </button>
+                
+                <p class="text-white/60 text-sm mt-4">
+                   关于更多
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                            <i class="fa fa-mask text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-xiaowei">绝非儿戏</span>
+                    </div>
+                    <p class="text-white/70 mb-6">
+                        将传统川剧艺术与现代数字技术相结合，创造全新的文化体验
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-white/10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="bg-white/10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+
+                        <a href="#" class="bg-white/10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                        <a href="#" class="bg-white/10 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-medium mb-6">快速链接</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#face-painting" class="text-white/70 hover:text-white transition-colors duration-300">脸谱华彩，绝活荟萃</a></li>
+                        <li><a href="#integration" class="text-white/70 hover:text-white transition-colors duration-300">戏韵流芳</a></li>
+                        <li><a href="#behind-scenes" class="text-white/70 hover:text-white transition-colors duration-300">幕后探秘</a></li>
+                    </ul>
+                </div>
+                
+               
+                
+                <div>
+                    <h4 class="text-xl font-medium mb-6">联系我们</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+                            <span class="text-white/70">四川省乐山市市中区海棠街道778号</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-white/60 text-sm mb-4 md:mb-0">
+                        &copy; 2025 绝非儿戏. 保留所有权利.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 福袋弹窗 -->
+    <div id="giftModal" class="fixed inset-0 z-50 flex items-center justify-center bg-dark/70 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-xl max-w-md w-full mx-4 transform scale-95 transition-transform duration-300">
+            <div class="relative">
+                <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl">
+                    <i class="fa fa-times"></i>
+                </button>
+                <div class="p-6 md:p-8 text-center">
+                    <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-gift text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-medium text-dark mb-4">恭喜获得文创福袋！</h3>
+                    <p class="text-secondary mb-6">
+                        您的专属电子海报已发送至您的邮箱，还可以参与抽奖赢取实体礼品
+                    </p>
+                    <div class="bg-light rounded-lg p-4 mb-6">
+                        <div class="flex items-center justify-center mb-4">
+                            <img src="images/页脚大图.png" alt="电子海报示例" class="w-40 h-auto rounded-lg">
+                        </div>
+                        <p class="text-dark font-medium">您的川剧风格电子海报</p>
+                    </div>
+                    <button id="drawPrizeBtn" class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-full transition-all duration-300 font-medium w-full">
+                        立即抽奖
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/95', 'shadow-lg');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-lg');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+        
+        // 移动端菜单
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fa fa-times"></i>';
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 投票图表
+        const voteChart = new Chart(
+            document.getElementById('voteChart'),
+            {
+                type: 'bar',
+                data: {
+                    labels: ['科幻电影', 'VR游戏', '汉服设计', '电子音乐'],
+                    datasets: [{
+                        label: '投票数',
+                        data: [65, 45, 80, 50],
+                        backgroundColor: [
+                            '#C62828',
+                            '#8D6E63',
+                            '#FDD835',
+                            '#3E2723'
+                        ],
+                        borderWidth: 0,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                display: false
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            }
+        );
+        
+        // 投票按钮
+        const voteBtns = document.querySelectorAll('.vote-btn');
+        voteBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const option = parseInt(this.getAttribute('data-option'));
+                // 更新投票数据
+                const currentData = voteChart.data.datasets[0].data;
+                currentData[option - 1] += 1;
+                voteChart.update();
+                
+                // 按钮状态更新
+                voteBtns.forEach(b => {
+                    b.classList.remove('bg-accent', 'text-dark');
+                    b.classList.add('bg-white/10', 'text-white');
+                });
+                this.classList.remove('bg-white/10', 'text-white');
+                this.classList.add('bg-accent', 'text-dark');
+            });
+        });
+        
+        // 福袋弹窗
+        const giftBtn = document.getElementById('getGiftBtn');
+        const giftModal = document.getElementById('giftModal');
+        const closeModal = document.getElementById('closeModal');
+        const drawPrizeBtn = document.getElementById('drawPrizeBtn');
+        
+        giftBtn.addEventListener('click', () => {
+            giftModal.classList.remove('opacity-0', 'pointer-events-none');
+            giftModal.querySelector('div').classList.remove('scale-95');
+            giftModal.querySelector('div').classList.add('scale-100');
+        });
+        
+        closeModal.addEventListener('click', closeGiftModal);
+        drawPrizeBtn.addEventListener('click', closeGiftModal);
+        
+        function closeGiftModal() {
+            giftModal.classList.add('opacity-0', 'pointer-events-none');
+            giftModal.querySelector('div').classList.remove('scale-100');
+            giftModal.querySelector('div').classList.add('scale-95');
+        }
+        
+        // 点击弹窗外部关闭
+        giftModal.addEventListener('click', (e) => {
+            if (e.target === giftModal) {
+                closeGiftModal();
+            }
+        });
+        
+        // 图片懒加载
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // 回退到传统懒加载库
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>

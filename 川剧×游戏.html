@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川剧与游戏的创新融合 | 成功案例展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C62828', // 川剧红
+                        secondary: '#8D6E63', // 脸谱棕
+                        accent: '#FDD835', // 戏服金
+                        dark: '#3E2723', // 传统墨色
+                        light: '#EFEBE9', // 宣纸色
+                    },
+                    fontFamily: {
+                        xiaowei: ['"ZCOOL XiaoWei"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .bg-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-sans bg-pattern">
+    <!-- 导航栏 -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-dark/90 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <i class="fa fa-mask text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-xiaowei text-white">数智川剧</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#cases" class="text-white hover:text-accent transition-colors font-medium">成功案例</a>
+                <a href="#impact" class="text-white hover:text-accent transition-colors font-medium">文化影响</a>
+            </nav>
+            
+            <button class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/川剧×游戏/游戏.jpg" alt="川剧与游戏结合的艺术展示" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/90 via-dark/70 to-dark/50"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-xiaowei text-white text-shadow leading-tight mb-6">
+                川剧 × 游戏<br>
+                <span class="text-accent">传统艺术的数字重生</span>
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-white text-shadow max-w-3xl mx-auto mb-10">
+                探索川剧文化如何通过现代游戏设计焕发新生，成为连接传统与未来的桥梁
+            </p>
+            <a href="#cases" class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 font-medium inline-flex items-center">
+                开始探索 <i class="fa fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 案例展示区 -->
+    <section id="cases" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-dark mb-4">成功案例</h2>
+                <p class="text-lg text-secondary max-w-3xl mx-auto">
+                    探索川剧元素如何巧妙融入现代游戏设计，创造独特的文化体验
+                </p>
+                <div class="w-16 h-1 bg-primary mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 案例1：王者荣耀 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×游戏/上官婉儿.jpg" alt="王者荣耀上官婉儿" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《王者荣耀》× 变脸英雄</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            英雄「上官婉儿」的大招特效融入川剧变脸元素，释放技能时面部浮现戏曲脸谱，皮肤设计结合传统服饰与现代美学。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">MOBA</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">角色设计</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例2：绘真·妙笔千山 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×游戏/妙笔千山.jpg" alt="绘真·妙笔千山" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《绘真·妙笔千山》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            游戏场景设计参考川剧戏台布局，角色动作借鉴戏曲身段，配乐融入昆曲和川剧唱腔，打造沉浸式东方美学体验。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">解谜</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">场景叙事</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例3：仙剑奇侠传六 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×游戏/仙剑奇侠传6.jpg" alt="仙剑奇侠传六" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《仙剑奇侠传六》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            支线任务「蜀中戏曲」中，玩家帮助戏班解决难题，并学习变脸技巧推动剧情发展，场景设计还原四川古镇风貌。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">RPG</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">剧情任务</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例4：三国杀 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×游戏/张任.jpg" alt="三国杀张任皮肤" class="w-full h-full object-cover">
+                        </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            武将「张任」的皮肤采用川剧武将造型，技能台词融入戏曲唱词，卡牌插画中服饰、脸谱与武器均参考川剧传统元素。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">桌游</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">卡牌设计</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例5：太吾绘卷 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×游戏/太吾绘卷.jpg" alt="太吾绘卷梨园系统" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">《太吾绘卷》</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            加入「梨园」系统，玩家可组建戏班、编排川剧节目，并通过表演提升门派影响力，包含《巴山秀才》等经典剧目。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">模拟经营</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">文化系统</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例6：虚拟变脸游戏 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64">
+                        <img src="images/川剧×游戏/互动.jpg" alt="虚拟变脸游戏" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end">
+                            <h3 class="text-white text-xl font-medium p-6">虚拟变脸互动体验</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark mb-4">
+                            基于AR技术的手机游戏，玩家通过摄像头体验变脸过程，学习不同脸谱的象征意义，支持分享到社交媒体。
+                        </p>
+                        <div class="flex items-center text-sm text-secondary">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full mr-2">AR</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full">教育游戏</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化影响区 -->
+    <section id="impact" class="py-20 bg-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-xiaowei text-white mb-4">文化影响力</h2>
+                <p class="text-lg text-white/80 max-w-3xl mx-auto">
+                    川剧与游戏的融合如何推动传统文化的现代传播
+                </p>
+                <div class="w-16 h-1 bg-accent mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">年轻受众增长</h3>
+                    <p class="text-white/70">
+                        通过游戏载体，川剧文化的年轻受众增长了35%，18-25岁群体的认知度从12%提升至47%。
+                    </p>
+                </div>
+                
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">国际传播</h3>
+                    <p class="text-white/70">
+                        含川剧元素的游戏在海外市场下载量突破2000万次，社交媒体相关话题阅读量达12亿次。
+                    </p>
+                </div>
+                
+                <div class="bg-dark/50 p-6 rounded-xl border border-primary/30 transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-white mb-4">文化传承</h3>
+                    <p class="text-white/70">
+                        游戏中对脸谱色彩象征、身段技巧的还原，帮助保存了濒危的川剧表演细节，吸引年轻人学习传统技艺。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-primary/10 rounded-xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-xiaowei text-accent mb-6">专家观点</h3>
+                        <blockquote class="text-white/80 italic mb-6">
+                            "游戏作为数字时代的叙事载体，为川剧等非物质文化遗产提供了新的生命力。通过互动体验，年轻一代不仅能观赏川剧之美，更能深入理解其文化内涵。"
+                        </blockquote>
+                        <p class="text-accent font-medium">—— 四川大学非物质文化遗产研究中心 李教授</p>
+                    </div>
+                    <div class="relative">
+                        <img src="images/川剧×游戏/教授.jpg" alt="专家访谈" class="w-full h-auto rounded-lg shadow-xl">
+                        <div class="absolute -bottom-4 -right-4 bg-accent text-dark px-4 py-2 rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="text-center mt-12">
+                <button class="bg-white hover:bg-primary/5 text-primary border border-primary/20 py-3 px-8 rounded-full transition-colors duration-300 font-medium">
+                  <a href="绝非儿戏 主网页.html">  回到主页</a>
+                </button>
+            </div>
+    </section>
+    
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/95', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-lg');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 图片懒加载
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // 回退到传统懒加载库
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
+    

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川剧文创 - 传统艺术的现代演绎</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C41E3A', // 川剧红
+                        secondary: '#D4AF37', // 川剧金
+                        neutral: '#2D3436',
+                        'neutral-light': '#B2BEC3',
+                        'age-child': '#FFC312',
+                        'age-teen': '#FDA7DF',
+                        'age-adult': '#1B9CFC',
+                        'age-senior': '#55E6C1'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif']
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.25);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .mask-gradient {
+                mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 英雄区域 -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full opacity-10">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <path fill="#C41E3A" d="M40.9,-70.4C53.4,-63.8,64.4,-51.4,70.6,-36.9C76.9,-22.4,78.4,-5.8,75.5,9.9C72.6,25.6,65.3,41.4,55.4,52.3C45.4,63.2,32.8,69.1,19.3,72.4C5.8,75.7,-8.7,76.5,-23.2,73.6C-37.7,70.8,-52.2,64.3,-63.6,53.7C-75,43.1,-83.3,28.4,-85.4,12.9C-87.5,-2.6,-83.4,-18.4,-74.9,-30.8C-66.4,-43.2,-53.5,-52.3,-40.2,-60.3C-26.9,-68.3,-13.4,-75.1,0.3,-76.9C14,-78.7,28,-75.5,40.9,-70.4Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="w-full lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-neutral leading-tight text-shadow">
+                        川剧文化<span class="text-primary">创意演绎</span><br>适合各年龄段的文创产品
+                    </h1>
+                    <p class="mt-6 text-lg text-gray-600 max-w-xl">
+                        我们将川剧的经典元素与现代设计相结合，为不同年龄段的人群精心打造富有文化内涵和实用价值的文创产品，让传统艺术焕发新的生命力。
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#products" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-300 shadow-lg shadow-primary/20">
+                            浏览产品 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                       
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform transition duration-500 hover:scale-[1.02]">
+                        <img src="images/文创照片/2.jpg" alt="川剧文创产品展示" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                            <div class="p-6 text-white">
+                                <h3 class="text-xl font-bold">川剧变脸文创系列</h3>
+                                <p class="text-sm text-white/80">传承经典艺术，演绎现代生活</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-1/4 -right-10 w-40 h-40 bg-secondary/30 rounded-full filter blur-3xl -z-10"></div>
+                    <div class="absolute bottom-1/4 -left-10 w-40 h-40 bg-primary/30 rounded-full filter blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- 年龄分类导航 -->
+<section class="py-12 bg-gray-100"> <!-- 板块背景色保持不变，仅修改卡片颜色 -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral">按年龄段浏览</h2>
+            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">我们的川剧文创产品专为不同年龄段的需求和兴趣设计，点击下方按钮浏览适合的产品类别</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- 儿童专区：改为川剧红渐变 -->
+            <a href="#child" class="bg-gradient-to-br from-primary/70 to-primary/50 rounded-xl p-6 text-center card-hover shadow-md"> 
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa fa-child text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white">儿童专区</h3>
+                <p class="mt-2 text-white/80">3-12岁</p>
+            </a>
+            
+            <!-- 青少年专区：改为深红色渐变 -->
+            <a href="#teen" class="bg-gradient-to-br from-primary/80 to-primary/60 rounded-xl p-6 text-center card-hover shadow-md">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa fa-gamepad text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white">青少年专区</h3>
+                <p class="mt-2 text-white/80">13-19岁</p>
+            </a>
+            
+            <!-- 成人专区：改为暗红色渐变 -->
+            <a href="#adult" class="bg-gradient-to-br from-primary/90 to-primary/70 rounded-xl p-6 text-center card-hover shadow-md">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa fa-briefcase text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white">成人专区</h3>
+                <p class="mt-2 text-white/80">20-59岁</p>
+            </a>
+            
+            <!-- 中老年专区：改为深枣红渐变 -->
+            <a href="#senior" class="bg-gradient-to-br from-[#7A1327] to-[#4E0E1A] rounded-xl p-6 text-center card-hover shadow-md">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa fa-book text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white">中老年专区</h3>
+                <p class="mt-2 text-white/80">60岁以上</p>
+            </a>
+        </div>
+    </div>
+</section>
+    <!-- 文创产品展示 -->
+    <section id="products" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral">精选川剧文创产品</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">探索我们为各年龄段精心设计的川剧文创产品，每一款都融合了传统艺术与现代设计</p>
+            </div>
+
+            <!-- 儿童专区 -->
+            <div id="child" class="mb-20">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-2xl font-bold text-neutral flex items-center">
+                        <i class="fa fa-child text-age-child mr-3"></i> 儿童专区 (3-12岁)
+                    </h3>
+                   
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 产品卡片1 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/拼图.png" alt="川剧变脸拼图" class="w-full h-56 object-cover">
+                            <div class="absolute top-3 left-3 bg-age-child text-white text-xs font-bold px-2 py-1 rounded">畅销</div>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧变脸拼图</h4>
+                            <p class="mt-2 text-gray-600 text-sm">36片安全材质拼图，包含5种经典川剧脸谱，培养孩子动手能力和对传统文化的兴趣</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥89.00</span>
+                                <button class="bg-age-child hover:bg-age-child/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片2 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/儿童川剧脸谱.png" alt="儿童川剧脸谱面具" class="w-full h-56 object-cover">
+                            <div class="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-2 py-1 rounded">新品</div>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">儿童川剧脸谱面具</h4>
+                            <p class="mt-2 text-gray-600 text-sm">柔软安全材质，5款经典川剧脸谱，让孩子体验变脸乐趣，激发表演天赋</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥129.00</span>
+                                <button class="bg-age-child hover:bg-age-child/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片3 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/故事绘本.png" alt="川剧故事绘本" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧故事绘本</h4>
+                            <p class="mt-2 text-gray-600 text-sm">精选5个川剧经典故事，全彩插图，附带拼音，培养孩子阅读兴趣和文化认知</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥159.00</span>
+                                <button class="bg-age-child hover:bg-age-child/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片4 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/积木.jpg" alt="川剧主题积木" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧主题积木</h4>
+                            <p class="mt-2 text-gray-600 text-sm">200片积木，可搭建戏台、人物等，锻炼孩子创造力和空间思维能力</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥199.00</span>
+                                <button class="bg-age-child hover:bg-age-child/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 青少年专区 -->
+            <div id="teen" class="mb-20">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-2xl font-bold text-neutral flex items-center">
+                        <i class="fa fa-gamepad text-age-teen mr-3"></i> 青少年专区 (13-19岁)
+                    </h3>
+                    
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 产品卡片1 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/手机壳.jpg" alt="川剧脸谱手机壳" class="w-full h-56 object-cover">
+                            <div class="absolute top-3 left-3 bg-age-teen text-white text-xs font-bold px-2 py-1 rounded">畅销</div>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧脸谱手机壳</h4>
+                            <p class="mt-2 text-gray-600 text-sm">钢化玻璃背板，硅胶边框，5款经典川剧脸谱设计，时尚个性，保护手机</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥69.00</span>
+                                <button class="bg-age-teen hover:bg-age-teen/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片2 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/T恤.jpg" alt="川剧主题T恤" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧主题T恤</h4>
+                            <p class="mt-2 text-gray-600 text-sm">高品质纯棉，时尚印花，5款不同川剧脸谱图案，展现个性与文化品味</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥129.00</span>
+                                <button class="bg-age-teen hover:bg-age-teen/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片3 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/文具.jpg" alt="川剧主题文具套装" class="w-full h-56 object-cover">
+                            <div class="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-2 py-1 rounded">新品</div>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧主题文具套装</h4>
+                            <p class="mt-2 text-gray-600 text-sm">包含笔记本、中性笔、便签纸、文件夹，川剧脸谱设计，学习生活好帮手</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥159.00</span>
+                                <button class="bg-age-teen hover:bg-age-teen/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片4 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/盲盒.jpg" alt="川剧变脸盲盒" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧变脸盲盒</h4>
+                            <p class="mt-2 text-gray-600 text-sm">每个盲盒包含1个精制川剧脸谱模型和1份相关文化介绍，收集不同脸谱，探索川剧文化</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥99.00</span>
+                                <button class="bg-age-teen hover:bg-age-teen/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 成人专区 -->
+            <div id="adult" class="mb-20">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-2xl font-bold text-neutral flex items-center">
+                        <i class="fa fa-briefcase text-age-adult mr-3"></i> 成人专区 (20-59岁)
+                    </h3>
+                    
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 产品卡片1 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/丝巾.jpg" alt="川剧脸谱丝巾" class="w-full h-56 object-cover">
+                            <div class="absolute top-3 left-3 bg-age-adult text-white text-xs font-bold px-2 py-1 rounded">畅销</div>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧脸谱丝巾</h4>
+                            <p class="mt-2 text-gray-600 text-sm">100%桑蚕丝，手工印制，5款经典川剧脸谱图案，优雅大方，彰显文化内涵</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥299.00</span>
+                                <button class="bg-age-adult hover:bg-age-adult/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片2 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/茶杯.jpg" alt="川剧主题茶具套装" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧主题茶具套装</h4>
+                            <p class="mt-2 text-gray-600 text-sm">包含茶壶、茶杯、茶海、茶漏，青花瓷质地，川剧脸谱装饰，品茶赏艺两相宜</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥499.00</span>
+                                <button class="bg-age-adult hover:bg-age-adult/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片3 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/画.jpg" alt="川剧主题装饰画" class="w-full h-56 object-cover">
+                            <div class="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-2 py-1 rounded">新品</div>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧主题装饰画</h4>
+                            <p class="mt-2 text-gray-600 text-sm">高清印刷，实木相框，5款不同川剧场景，为家居增添文化艺术氛围</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥359.00</span>
+                                <button class="bg-age-adult hover:bg-age-adult/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片4 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/礼盒.jpg" alt="川剧主题香薰礼盒" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧主题香薰礼盒</h4>
+                            <p class="mt-2 text-gray-600 text-sm">包含3个不同香型的香薰蜡烛和1个川剧脸谱造型的扩香器，舒缓压力，营造优雅氛围</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥289.00</span>
+                                <button class="bg-age-adult hover:bg-age-adult/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中老年专区 -->
+            <div id="senior">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-2xl font-bold text-neutral flex items-center">
+                        <i class="fa fa-book text-age-senior mr-3"></i> 中老年专区 (60岁以上)
+                    </h3>
+                    
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 产品卡片1 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/保温杯.png" alt="川剧主题保温杯" class="w-full h-56 object-cover">
+                            <div class="absolute top-3 left-3 bg-age-senior text-white text-xs font-bold px-2 py-1 rounded">畅销</div>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧主题保温杯</h4>
+                            <p class="mt-2 text-gray-600 text-sm">304不锈钢内胆，双层真空设计，12小时保温保冷，川剧脸谱浮雕，彰显文化品味</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥199.00</span>
+                                <button class="bg-age-senior hover:bg-age-senior/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片2 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/收音机.png" alt="川剧收音机" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧收音机</h4>
+                            <p class="mt-2 text-gray-600 text-sm">AM/FM立体声，大容量电池，支持TF卡播放，川剧脸谱外壳设计，收听经典川剧曲目</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥249.00</span>
+                                <button class="bg-age-senior hover:bg-age-senior/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片3 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/日历.png" alt="川剧文化日历" class="w-full h-56 object-cover">
+                            <div class="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-2 py-1 rounded">新品</div>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧文化日历</h4>
+                            <p class="mt-2 text-gray-600 text-sm">每日一页，每页包含一幅川剧脸谱、一句经典台词和相关文化介绍，了解川剧知识</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥129.00</span>
+                                <button class="bg-age-senior hover:bg-age-senior/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品卡片4 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="relative">
+                            <img src="images/文创照片/象棋.png" alt="川剧主题象棋" class="w-full h-56 object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-lg font-semibold text-neutral">川剧主题象棋</h4>
+                            <p class="mt-2 text-gray-600 text-sm">木质棋盘，骨质棋子，川剧人物造型，复古设计，休闲娱乐佳品</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold text-neutral">¥229.00</span>
+                                <button class="bg-age-senior hover:bg-age-senior/90 text-white rounded-full p-2 transition">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                           	</div>
+                        </div>
+                  	</div>
+                </div>
+            </div>
+       	 </div>
+    	</section>
+	<div class="text-center mt-12">
+                <button class="bg-white hover:bg-primary/5 text-primary border border-primary/20 py-3 px-8 rounded-full transition-colors duration-300 font-medium">
+                  <a href="绝非儿戏 主网页.html">  回到主页</a>
+                </button>
+		</div>
+	</body>
+</html>
